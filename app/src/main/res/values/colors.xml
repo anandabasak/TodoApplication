@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#141414</color>
+    <color name="colorPrimaryDark">#141414</color>
+    <color name="colorAccent">#bb86fc</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="card_background">#1B1B1B</color>
+    <color name="task_main_text">#FFFFFF</color>
+    <color name="sub_task_text">#CCFFFFFF</color>
+</resources>

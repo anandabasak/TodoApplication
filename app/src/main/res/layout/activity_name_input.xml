@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:id="@+id/user_name_layout"
+    >
+
+    <TextView
+        android:id="@+id/banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Your \nAccount"
+        android:textColor="@color/mdtp_white"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="70dp"/>
+
+    <TextView
+        android:id="@+id/subbanner"
+        android:layout_below="@id/banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We just need your name. Nothing else !"
+        android:textColor="@color/mdtp_white"
+        android:textSize="18dp"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="15dp"/>
+
+    <EditText
+        android:id="@+id/user_name"
+        android:layout_below="@id/subbanner"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:background="@drawable/edittext_create"
+        android:ems="10"
+        android:capitalize="words"
+        android:hint=" First  /  NickName  only"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="30dp"
+        android:padding="15dp"
+        android:singleLine="true"
+        android:textColor="#e6e6e6"
+        android:textColorHint="#7e7e7e"/>
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/add_new_button"
+        android:onClick="openHomePage"
+        android:text="SIGN UP"
+        android:textStyle="bold"
+        android:paddingHorizontal="60dp"
+        android:textAlignment="center" />
+
+</RelativeLayout>
