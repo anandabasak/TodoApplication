@@ -11,68 +11,6 @@
         android:orientation="horizontal"
         android:padding="10dip"
         android:weightSum="4">
-
-
-        <!--  ListRow Left sied Thumbnail image -->
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/ic_more"
-            android:contentDescription="More"
-            android:padding="10dp" />
-
-
-        <LinearLayout
-            android:id="@+id/centerContent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:orientation="vertical"
-            android:paddingLeft="8dp"
-            android:visibility="visible">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/task_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Task Date"
-                    android:textColor="@color/sub_task_text"
-                    android:textSize="14sp"
-                    android:typeface="sans" />
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"/>
-                <TextView
-                    android:id="@+id/task_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Task Time"
-                    android:textColor="@color/sub_task_text"
-                    android:textSize="14sp"
-                    android:typeface="sans" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/task_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:paddingVertical="6dp"
-                android:text="Task Name here"
-                android:textColor="@color/task_main_text"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:visibility="visible" />
-        </LinearLayout>
-
         <LinearLayout
             android:id="@+id/thumbnail"
             android:layout_width="wrap_content"
@@ -92,6 +30,72 @@
                 android:textSize="20sp"
                 android:visibility="visible" />
         </LinearLayout>
+
+        <!--  ListRow Left sied Thumbnail image -->
+
+
+
+        <LinearLayout
+            android:id="@+id/centerContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:visibility="visible">
+
+
+
+            <TextView
+                android:id="@+id/task_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:paddingVertical="6dp"
+                android:text="Task Name here"
+                android:textColor="@color/task_main_text"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/task_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Task Date"
+                android:textColor="@color/sub_task_text"
+                android:textSize="14sp"
+                android:typeface="sans" />
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+            <TextView
+                android:id="@+id/task_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Task Time"
+                android:textColor="@color/sub_task_text"
+                android:textSize="14sp"
+                android:typeface="sans" />
+
+        </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/ic_more"
+            android:contentDescription="More"
+            android:padding="10dp" />
     </LinearLayout>
 
 
