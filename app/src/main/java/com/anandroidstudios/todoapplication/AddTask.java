@@ -175,26 +175,13 @@ public class AddTask extends AppCompatActivity implements DatePickerDialog.OnDat
     public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
 
         EditText task_time = findViewById(R.id.task_time);
-        String time ;
+        //String time ;
+        String h = String.valueOf(hourOfDay) ;
+        String m = String.valueOf(minute) ;
 
-        if(hourOfDay<10){
-            if (minute<10){
-                task_time.setText("0"+hourOfDay+":0"+minute);
-            }
-            else {
-                task_time.setText("0"+hourOfDay+":"+minute);
-            }
-        }
-        if(minute<10){
-            if (hourOfDay<10){
-                task_time.setText("0"+hourOfDay+":0"+minute);
-            }
-            else {
-                task_time.setText(hourOfDay+":0"+minute);
-            }
-        }
-        else{
-            task_time.setText(hourOfDay+":"+minute);
-        }
+        if(hourOfDay<10) h = "0" + hourOfDay;
+        if(minute<10) m = "0" + minute;
+        task_time.setText(h+":"+m);
+
     }
 }
