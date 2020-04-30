@@ -5,10 +5,10 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
@@ -25,7 +25,7 @@ public class AddTask extends AppCompatActivity implements DatePickerDialog.OnDat
     DatePickerDialog dpd;
     int startYear = 0, startMonth = 0, startDay = 0;
     String dateFinal , timeFinal;
-    String nameFinal;
+    String nameFinal, descFinal;
 
     Intent intent;
     Boolean isUpdate;
@@ -61,22 +61,24 @@ public class AddTask extends AppCompatActivity implements DatePickerDialog.OnDat
 
     public void init_update() {
         id = intent.getStringExtra("id");
-        TextView toolbar_task_add_title = (TextView) findViewById(R.id.toolbar_task_add_title);
-        EditText task_name = (EditText) findViewById(R.id.task_name);
-        EditText task_date = (EditText) findViewById(R.id.task_date);
-        EditText task_time = (EditText) findViewById(R.id.task_time);
+        TextView toolbar_task_add_title = findViewById(R.id.toolbar_task_add_title);
+        EditText task_name = findViewById(R.id.task_name);
+        EditText task_desc = findViewById(R.id.task_description);
+        EditText task_date = findViewById(R.id.task_date);
+        EditText task_time = findViewById(R.id.task_time);
         toolbar_task_add_title.setText("Update");
         Cursor task = mydb.getDataSpecific(id);
         if (task != null) {
             task.moveToFirst();
 
-            task_name.setText(task.getString(1).toString());
-            Calendar cal = Function.Epoch2Calender(task.getString(2).toString());
+            task_name.setText(task.getString(1));
+            Calendar cal = Function.Epoch2Calender(task.getString(2));
             startYear = cal.get(Calendar.YEAR);
             startMonth = cal.get(Calendar.MONTH);
             startDay = cal.get(Calendar.DAY_OF_MONTH);
-            task_date.setText(Function.Epoch2DateString(task.getString(2).toString(), "dd/MM/yyyy"));
-            task_time.setText(task.getString(3).toString());
+            task_date.setText(Function.Epoch2DateString(task.getString(2), "dd/MM/yyyy"));
+            task_time.setText(task.getString(3));
+            task_desc.setText(task.getString(4));
         }
 
     }
@@ -97,12 +99,14 @@ public class AddTask extends AppCompatActivity implements DatePickerDialog.OnDat
 
     public void doneAddTask(View v) {
         int errorStep = 0;
-        EditText task_name = (EditText) findViewById(R.id.task_name);
-        EditText task_date = (EditText) findViewById(R.id.task_date);
-        EditText task_time = (EditText) findViewById(R.id.task_time);
+        EditText task_name = findViewById(R.id.task_name);
+        EditText task_date = findViewById(R.id.task_date);
+        EditText task_time = findViewById(R.id.task_time);
+        EditText task_desc = findViewById(R.id.task_description);
         nameFinal = task_name.getText().toString();
         dateFinal = task_date.getText().toString();
         timeFinal = task_time.getText().toString();
+        descFinal = task_desc.getText().toString();
 
         /* Checking */
         if (nameFinal.trim().length() < 1) {
@@ -119,10 +123,10 @@ public class AddTask extends AppCompatActivity implements DatePickerDialog.OnDat
 
         if (errorStep == 0) {
             if (isUpdate) {
-                mydb.updateContact(id, nameFinal, dateFinal, timeFinal);
+                mydb.updateContact(id, nameFinal, dateFinal, timeFinal, descFinal);
                 Toast.makeText(getApplicationContext(), "Task Updated.", Toast.LENGTH_SHORT).show();
             } else {
-                mydb.insertContact(nameFinal, dateFinal , timeFinal);
+                mydb.insertContact(nameFinal, dateFinal, timeFinal, descFinal);
                 Toast.makeText(getApplicationContext(), "Task Added.", Toast.LENGTH_SHORT).show();
             }
 
@@ -149,7 +153,7 @@ public class AddTask extends AppCompatActivity implements DatePickerDialog.OnDat
         String date = (startDay < 10 ? "0" + startDay : "" + startDay) + "/" +
                 (monthAddOne < 10 ? "0" + monthAddOne : "" + monthAddOne) + "/" +
                 startYear;
-        EditText task_date = (EditText) findViewById(R.id.task_date);
+        EditText task_date = findViewById(R.id.task_date);
         task_date.setText(date);
     }
 
@@ -170,7 +174,7 @@ public class AddTask extends AppCompatActivity implements DatePickerDialog.OnDat
     @Override
     public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
 
-       EditText task_time = (EditText) findViewById(R.id.task_time);
+        EditText task_time = findViewById(R.id.task_time);
         String time ;
 
         if(hourOfDay<10){

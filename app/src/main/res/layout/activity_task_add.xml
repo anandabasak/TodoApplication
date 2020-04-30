@@ -6,60 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_task_add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp">
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|left"
-            android:orientation="horizontal"
-            >
-
-            <!--<ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:background="@android:color/transparent"
-                android:onClick="closeAddTask"
-                android:padding="5dp"
-                android:src="@drawable/ic_action_back" />-->
-
-            <TextView
-                android:id="@+id/toolbar_task_add_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical|start"
-                android:text="Create"
-                android:textAlignment="center"
-                android:textColor="#ffffff"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <!--<ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_margin="5dp"
-                android:background="@android:color/transparent"
-                android:onClick="doneAddTask"
-                android:padding="5dp"
-                android:src="@drawable/ic_action_done" />-->
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,6 +27,7 @@
             android:layout_gravity="center"
             android:background="@drawable/edittext_create"
             android:ems="10"
+            android:inputType="textCapWords"
             android:capitalize="words"
             android:hint="Task"
             android:padding="12dp"
@@ -120,15 +67,37 @@
             android:background="@drawable/edittext_create"
             android:ems="10"
             android:focusable="false"
-            android:hint="Task Time"
+            android:hint="Task Time (optional)"
             android:onClick="showStartTimePicker"
             android:padding="12dp"
             android:singleLine="true"
             android:textColor="#e6e6e6"
             android:textColorHint="#7e7e7e"/>
 
+        <EditText
+            android:id="@+id/task_description"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="@drawable/edittext_create"
+            android:ems="10"
+            android:gravity="top"
+            android:hint="@string/describe_your_task_optional"
+            android:inputType="textCapSentences|textMultiLine|textImeMultiLine"
+            android:lines="10"
+            android:padding="12dp"
+            android:singleLine="false"
+            android:textColor="#e6e6e6"
+            android:textColorHint="#7e7e7e" />
+
+        <!--New Part-->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:background="#D2D2D2" />
 
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -147,16 +116,68 @@
         android:layout_height="match_parent"
         android:onClick="closeAddTask"
         android:background="@color/transparent"
-        android:text=" Cancel "
-        android:textAlignment="center" />
+            android:layout_gravity="center_horizontal"
+            android:text="@string/cancel" />
         <Button
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:onClick="doneAddTask"
             android:background="@color/transparent"
-            android:text="  Add New  "
-            android:textAlignment="center" />
+            android:layout_gravity="center_horizontal"
+            android:text="@string/add_new" />
 
-</LinearLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_task_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|left"
+            android:orientation="horizontal">
+
+            <!--<ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@android:color/transparent"
+                android:onClick="closeAddTask"
+                android:padding="5dp"
+                android:src="@drawable/ic_action_back" />-->
+
+            <TextView
+                android:id="@+id/toolbar_task_add_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|start"
+                android:text="Create"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+
+            <!--<ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="5dp"
+                android:background="@android:color/transparent"
+                android:onClick="doneAddTask"
+                android:padding="5dp"
+                android:src="@drawable/ic_action_done" />-->
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
 </RelativeLayout>

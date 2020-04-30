@@ -1,38 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_task"
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|start"
-            android:text="Task"
-            android:textAlignment="center"
-            android:textColor="@color/mdtp_white"
-            android:textSize="20dp"
-            android:textStyle="bold"
-
-            />
-
-
-    </android.support.v7.widget.Toolbar>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/add_new_button"
+        android:onClick="openAddTask"
+        android:paddingHorizontal="24dp"
+        android:text="+    Add New" />
 
     <ProgressBar
         android:id="@+id/loader"
@@ -96,7 +80,9 @@
                 android:layout_marginRight="12dp"
                 android:background="@color/card_background"
                 android:descendantFocusability="blocksDescendants"
-                app:cardCornerRadius="7dp">
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="7dp"
+                app:cardUseCompatPadding="true">
 
                 <com.anandroidstudios.todoapplication.NoScrollListView
                     android:id="@+id/taskListToday"
@@ -124,7 +110,9 @@
                 android:layout_marginRight="12dp"
                 android:background="@color/card_background"
                 android:descendantFocusability="blocksDescendants"
-                app:cardCornerRadius="7dp">
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="7dp"
+                app:cardUseCompatPadding="true">
 
                 <com.anandroidstudios.todoapplication.NoScrollListView
                     android:id="@+id/taskListTomorrow"
@@ -153,7 +141,9 @@
                 android:layout_marginBottom="10dp"
                 android:background="@color/card_background"
                 android:descendantFocusability="blocksDescendants"
-                app:cardCornerRadius="7dp">
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="7dp"
+                app:cardUseCompatPadding="true">
 
                 <com.anandroidstudios.todoapplication.NoScrollListView
                     android:id="@+id/taskListUpcoming"
@@ -168,15 +158,40 @@
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
-    <Button
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_task"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/add_new_button"
-        android:onClick="openAddTask"
-        android:text="+    Add New"
-        android:textAlignment="center"
-        android:paddingHorizontal="24dp"/>
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@android:color/transparent"
+            android:foregroundGravity="center"
+            android:onClick="openPastTasks"
+            android:padding="10dp"
+            android:src="@drawable/ic_list" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical|start"
+            android:text="Task"
+            android:textAlignment="center"
+            android:textColor="@color/mdtp_white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+    </android.support.v7.widget.Toolbar>
 </RelativeLayout>

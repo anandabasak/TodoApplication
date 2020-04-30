@@ -9,28 +9,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="15dip"
+        android:padding="10dip"
         android:weightSum="4">
 
 
         <!--  ListRow Left sied Thumbnail image -->
-        <LinearLayout
-            android:id="@+id/thumbnail"
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="3dip"
-            android:visibility="visible">
-
-            <TextView
-                android:id="@+id/task_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="o"
-                android:textColor="#444444"
-                android:textSize="20sp"
-                android:visibility="visible" />
-        </LinearLayout>
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/ic_more"
+            android:contentDescription="More"
+            android:padding="10dp" />
 
 
         <LinearLayout
@@ -39,20 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
+            android:paddingLeft="8dp"
             android:visibility="visible">
-
-            <TextView
-                android:id="@+id/task_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:paddingBottom="6dp"
-                android:text="Task Name here"
-                android:textColor="@color/task_main_text"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:visibility="visible" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,10 +57,41 @@
                     android:textColor="@color/sub_task_text"
                     android:textSize="14sp"
                     android:typeface="sans" />
+
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/task_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:paddingVertical="6dp"
+                android:text="Task Name here"
+                android:textColor="@color/task_main_text"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/thumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="5dp"
+            android:orientation="vertical"
+            android:visibility="visible">
 
+            <TextView
+                android:id="@+id/task_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="o"
+                android:textColor="#444444"
+                android:textSize="20sp"
+                android:visibility="visible" />
+        </LinearLayout>
     </LinearLayout>
 
 

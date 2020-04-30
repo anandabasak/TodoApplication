@@ -18,6 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".TaskHome"/>
+        <activity android:name=".TaskDetails" />
+        <activity android:name=".PastTask" />
         <activity android:name=".AddTask"
             android:windowSoftInputMode="adjustResize"/>
     </application>

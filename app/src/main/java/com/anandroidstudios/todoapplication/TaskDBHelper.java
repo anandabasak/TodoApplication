@@ -28,7 +28,7 @@ public class TaskDBHelper extends SQLiteOpenHelper {
 
         db.execSQL(
                 "CREATE TABLE "+CONTACTS_TABLE_NAME +
-                        "(id INTEGER PRIMARY KEY, task TEXT, dateStr INTEGER, timeStr INTEGER)"
+                        "(id INTEGER PRIMARY KEY, task TEXT, dateStr INTEGER, timeStr INTEGER, description TEXT)"
         );
     }
 
@@ -59,7 +59,7 @@ public class TaskDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertContact  (String task, String dateStr , String timeStr)
+    public boolean insertContact(String task, String dateStr, String timeStr, String description)
     {
         Date date;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -67,11 +67,12 @@ public class TaskDBHelper extends SQLiteOpenHelper {
         contentValues.put("task", task);
         contentValues.put("dateStr", getDate(dateStr));
         contentValues.put("timeStr", getTime(timeStr));
+        contentValues.put("description", description);
         db.insert(CONTACTS_TABLE_NAME, null, contentValues);
         return true;
     }
 
-    public boolean updateContact (String id, String task, String dateStr , String timeStr)
+    public boolean updateContact(String id, String task, String dateStr, String timeStr, String description)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -79,6 +80,7 @@ public class TaskDBHelper extends SQLiteOpenHelper {
         contentValues.put("task", task);
         contentValues.put("dateStr", getDate(dateStr));
         contentValues.put("timeStr", getTime(timeStr));
+        contentValues.put("description", description);
 
         db.update(CONTACTS_TABLE_NAME, contentValues, "id = ? ", new String[] { id } );
         return true;
@@ -132,6 +134,15 @@ public class TaskDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery("select * from "+CONTACTS_TABLE_NAME+
                 " WHERE date(datetime(dateStr / 1000 , 'unixepoch', 'localtime')) > date('now', '+1 day', 'localtime') order by id desc", null);
+        return res;
+
+    }
+
+
+    public Cursor getDataPast() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from " + CONTACTS_TABLE_NAME +
+                " WHERE date(datetime(dateStr / 1000 , 'unixepoch', 'localtime')) < date('now', 'localtime') order by dateStr desc", null);
         return res;
 
     }

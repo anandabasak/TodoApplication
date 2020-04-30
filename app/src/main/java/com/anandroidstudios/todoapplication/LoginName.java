@@ -50,5 +50,5 @@ public class LoginName extends AppCompatActivity {
         editor.apply();
     }
 
-    
+
 }
