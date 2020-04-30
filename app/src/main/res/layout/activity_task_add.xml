@@ -20,11 +20,12 @@
         app:contentInsetStart="0dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|left"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="RtlHardcoded">
 
             <!--<ImageView
                 android:layout_width="35dp"
@@ -42,7 +43,7 @@
                 android:text="Create"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 tools:ignore="RtlCompat" />
 
@@ -73,7 +74,6 @@
             android:id="@+id/task_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:background="@drawable/edittext_create"
             android:ems="10"
@@ -92,7 +92,6 @@
             android:id="@+id/task_date"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:background="@drawable/edittext_create"
             android:ems="10"
@@ -112,7 +111,6 @@
             android:id="@+id/task_time"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:background="@drawable/edittext_create"
             android:ems="10"
@@ -171,7 +169,9 @@
         android:onClick="closeAddTask"
         android:background="@color/transparent"
             android:layout_gravity="center_horizontal"
-            android:text="@string/cancel" />
+            android:text="@string/cancel"
+            android:textStyle="bold"
+            tools:ignore="ButtonStyle" />
         <Button
             android:layout_weight="1"
             android:layout_width="wrap_content"
@@ -179,7 +179,9 @@
             android:onClick="doneAddTask"
             android:background="@color/transparent"
             android:layout_gravity="center_horizontal"
-            android:text="@string/add_new" />
+            android:textStyle="bold"
+            android:text="@string/add_new"
+            tools:ignore="ButtonStyle" />
 
     </LinearLayout>
 

@@ -25,10 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center_vertical|start"
-        android:text="History"
+        android:text="@string/history"
         android:textAlignment="center"
         android:textColor="@color/mdtp_white"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         tools:ignore="RtlCompat" />
 

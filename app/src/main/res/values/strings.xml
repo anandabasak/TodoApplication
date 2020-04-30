@@ -1,6 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Tasks</string>
     <string name="describe_your_task_optional">Describe your task (optional)</string>
     <string name="cancel">Cancel</string>
     <string name="add_new">Add New</string>
+    <string name="history">History</string>
+    <string name="upcoming_next">UPCOMING NEXT</string>
+    <string name="tomorrow">TOMORROW</string>
+    <string name="today">TODAY</string>
 </resources>
